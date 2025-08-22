@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compass College</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; scroll-behavior: smooth; }
+    header { background: #1e3a8a; color: white; padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { font-size: 1.5rem; }
+    nav a { margin-left: 1rem; color: white; text-decoration: none; font-weight: 500; }
+    nav a:hover { text-decoration: underline; }
+
+    .section { padding: 4rem 2rem; max-width: 1000px; margin: auto; }
+    .hero { background: url('https://images.unsplash.com/photo-1588072432836-e10032774350') no-repeat center/cover; color: white; text-align: center; padding: 6rem 2rem; }
+    .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; }
+
+    .subjects, .gallery, .students { display: grid; gap: 1rem; }
+    .subjects { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+    .subjects div { background: #f3f4f6; padding: 1rem; border-radius: 8px; text-align: center; font-weight: 500; }
+
+    .gallery { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .gallery img { width: 100%; border-radius: 10px; }
+
+    .students blockquote { background: #f9fafb; border-left: 5px solid #1e3a8a; padding: 1rem; margin-bottom: 1rem; border-radius: 5px; }
+
+    .contact form { display: flex; flex-direction: column; gap: 1rem; }
+    .contact input, .contact textarea { padding: 0.75rem; border: 1px solid #ccc; border-radius: 5px; width: 100%; }
+    .contact button { background: #1e3a8a; color: white; border: none; padding: 0.75rem; border-radius: 5px; cursor: pointer; }
+    .contact button:hover { background: #3749a3; }
+
+    footer { text-align: center; padding: 2rem; background: #1e3a8a; color: white; }
+
+    @media (max-width: 768px) {
+      header nav { display: none; }
+      header .menu-btn { display: block; font-size: 1.5rem; cursor: pointer; }
+      nav.mobile { display: flex; flex-direction: column; background: #1e3a8a; padding: 1rem; }
+      nav.mobile a { margin: 0.5rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Compass College</h1>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <nav id="desktop-nav">
+      <a href="#about">About</a>
+      <a href="#academics">Academics</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#students">Students</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <nav id="mobile-nav" class="mobile" style="display: none;"></nav>
+
+  <section class="hero">
+    <h2>Welcome to Compass College</h2>
+    <p>Impacting Lives for Global Relevance</p>
+  </section>
+
+  <section id="about" class="section">
+    <h2>About Us</h2>
+    <p>Compass College is committed to raising future leaders who will make a mark in the world. With a strong academic foundation and values, we prepare our students to be globally relevant and impactful.</p>
+  </section>
+
+  <section id="academics" class="section">
+    <h2>Academics</h2>
+    <div class="subjects">
+      <div>Science</div>
+      <div>Art</div>
+      <div>Commercial</div>
+    </div>
+  </section>
+
+  <section id="gallery" class="section">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="https://source.unsplash.com/400x300/?classroom" alt="Gallery 1">
+      <img src="https://source.unsplash.com/400x300/?students" alt="Gallery 2">
+      <img src="https://source.unsplash.com/400x300/?graduation" alt="Gallery 3">
+    </div>
+  </section>
+
+  <section id="students" class="section">
+    <h2>Students' Voice</h2>
+    <blockquote>“Compass College made me believe in myself and my dreams.” – Aisha, Head Girl</blockquote>
+    <blockquote>“The support and mentorship here shaped me into who I am.” – Samuel, Head Boy</blockquote>
+    <blockquote>“Every day at Compass was a step toward greatness.” – Daniel, Science Prefect</blockquote>
+  </section>
+
+  <section id="contact" class="section contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p style="margin-top: 1rem;">📍 Compass College, Nigeria</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Compass College. All Rights Reserved.
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const mobileNav = document.getElementById('mobile-nav');
+      const desktopNav = document.getElementById('desktop-nav');
+      if (mobileNav.style.display === 'none') {
+        mobileNav.innerHTML = desktopNav.innerHTML;
+        mobileNav.style.display = 'flex';
+      } else {
+        mobileNav.style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+</html>

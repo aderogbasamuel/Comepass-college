@@ -1,0 +1,52 @@
+<div class="counter-container">
+  <span class="counter" data-target="100">0</span>
+</div>
+
+<style>
+  .counter-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+</style>
+
+<script>
+  const counterElement = document.querySelector('.counter');
+  const targetNumber = parseInt(counterElement.getAttribute('data-target'));
+  const duration = 2000; // Animation duration in ms
+  let animationStarted = false;
+
+  function animateCounter() {
+    let start = 0;
+    const increment = targetNumber / (duration / 16); // 60fps
+
+    const updateCounter = () => {
+      start += increment;
+      if (start < targetNumber) {
+        counterElement.textContent = Math.floor(start);
+        requestAnimationFrame(updateCounter);
+      } else {
+        counterElement.textContent = targetNumber;
+      }
+    };
+
+    updateCounter();
+  }
+
+  function checkScroll() {
+    const elementPosition = counterElement.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (elementPosition < windowHeight && !animationStarted) {
+      animationStarted = true;
+      animateCounter();
+    }
+  }
+
+  window.addEventListener('scroll', checkScroll);
+  // Check on page load in case element is already visible
+  checkScroll();
+</script>
