@@ -485,6 +485,13 @@ background-size: cover;
       align-items: center;
       margin: 10px 0px;
     }
+        @media (min-width: 768px) {
+       .chooseus{
+         flex-direction: row;
+         gap: 50px;
+       }
+    }
+
     .stats .icon{
       background: var(--accent);
       color: #fff !important;
